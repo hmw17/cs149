@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include <stdio.h>\
+\
+/* Define your function here */\
+void SwapValues(int* userVal1, int* userVal2, int* userVal3, int* userVal4) \{\
+	int temp = *userVal1;\
+	*userVal1 = *userVal2;\
+	*userVal2 = temp;\
+	temp = *userVal3;\
+	*userVal3 = *userVal4;\
+	*userVal4 = temp;\
+\}\
+\
+int main(void) \{\
+\
+	/* Type your code here. Your code must call the function.  */\
+	int userVal1, userVal2, userVal3, userVal4;\
+	scanf("%d %d %d %d", &userVal1, &userVal2, &userVal3, &userVal4);\
+	SwapValues(&userVal1, &userVal2, &userVal3, &userVal4);\
+	printf("%d %d %d %d\\n", userVal1, userVal2, userVal3, userVal4);\
+\
+	return 0;\
+\}}
