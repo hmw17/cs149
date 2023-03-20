@@ -1,0 +1,53 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include <stdio.h>\
+#include <stdbool.h>\
+\
+/* Define your function here */\
+bool IsArrayMult10(int inputVals[], int numVals) \{\
+	int i;\
+	for (i = 0; i < numVals; i++) \{\
+		if (inputVals[i] % 10 != 0) \{\
+			return false;\
+		\}\
+	\}\
+	return true;\
+\}\
+\
+bool IsArrayNoMult10(int inputVals[], int numVals) \{\
+	int i;\
+	for (i = 0; i < numVals; i++) \{\
+		if (inputVals[i] % 10 == 0) \{\
+			return false;\
+		\}\
+	\}\
+	return true;\
+\}\
+\
+int main(void) \{\
+\
+	/* Type your code here. Remember to include the bool library*/\
+\
+	int arr[100], num;\
+	scanf("%d", &num);\
+	for (int i = 0; i < num; i++) \{\
+		scanf("%d", &arr[i]);\
+	\}\
+	if (IsArrayMult10(arr, num)) \{\
+		printf("all multiples of 10\\n");\
+	\}\
+	else if (IsArrayNoMult10(arr, num)) \{\
+		printf("no multiples of 10\\n");\
+	\}\
+	else \{\
+		printf("mixed values\\n");\
+	\}\
+\
+	return 0;\
+\}\
+}
