@@ -5,6 +5,39 @@
 * Creation date:
 **/
 
+
+/*
+
+Sample test
+
+> gcc process_manager.c -o process_manager
+> ./process_manager
+cat names.txt
+wc names.txt
+> ls
+216.err  217.err  883.err  884.err  a.out         countnames_parallel.c  names.txt        process_manager.c
+216.out  217.out  883.out  884.out  countnames.c  cs149-A3.pdf           process_manager
+> cat 216.out
+Starting command 2: child PID 216 of parent PPID 215
+Nicky
+
+Dave Joe
+Yuan Cheng Chang
+
+Dave Joe
+John Smith
+Yuan Cheng Chang
+Yuan Cheng Chang
+Finished child PID 216 of parent PPID 215
+> cat 217.out
+Starting command 2: child PID 217 of parent PPID 215
+ 9 16 88 names.txt
+Finished child PID 217 of parent PPID 215
+
+
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
