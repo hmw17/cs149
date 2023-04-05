@@ -1,0 +1,57 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include<stdio.h>\
+#include<string.h>\
+\
+#include "ItemToPurchase.h"\
+\
+int main(void) \{\
+\
+	/* Type your code here */\
+	char name[100];\
+	int price, quantity;\
+	ItemToPurchase item1, item2;\
+	\
+	printf("Item 1\\n");\
+	printf("Enter the item name:\\n");\
+	fgets(name, 100, stdin);\
+	name[strlen(name) - 1] = '\\0';\
+	strcpy(item1.itemName, name);\
+	printf("Enter the item price:\\n");\
+	scanf("%d", &price);\
+	item1.itemPrice = price;\
+	printf("Enter the item quantity:\\n");\
+	scanf("%d", &quantity);\
+	item1.itemQuantity = quantity;\
+\
+	char c;\
+	c = getchar();\
+	while (c != '\\n' && c != EOF) \{\
+		c = getchar();\
+	\}\
+\
+	printf("\\nItem 2\\n");\
+	printf("Enter the item name:\\n");\
+	fgets(name, 100, stdin);\
+	name[strlen(name) - 1] = '\\0';\
+	strcpy(item2.itemName, name);\
+	printf("Enter the item price:\\n");\
+	scanf("%d", &price);\
+	item2.itemPrice = price;\
+	printf("Enter the item quantity:\\n");\
+	scanf("%d", &quantity);\
+	item2.itemQuantity = quantity;\
+\
+	printf("\\nTOTAL COST\\n");\
+	PrintItemCost(item1);\
+	PrintItemCost(item2);\
+	int total = item1.itemPrice * item1.itemQuantity + item2.itemPrice * item2.itemQuantity;\
+	printf("\\nTotal: $%d\\n", total);\
+	\
+	return 0;\
+\}}
