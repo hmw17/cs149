@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include <stdio.h>\
+#include <string.h>\
+#include <stdlib.h>\
+\
+typedef struct ContactNode_struct \{\
+	/* Define ContactNode struct here. */\
+	char contactName[100];\
+	char contactPhoneNumber[100];\
+	struct ContactNode_struct* nextNodePtr;\
+\} ContactNode;\
+\
+/* Define the functions here. */\
+void InitializeContactNode(ContactNode* node, char* name, char* phoneNum) \{\
+	strcpy(node->contactName, name);\
+	strcpy(node->contactPhoneNumber, phoneNum);\
+	node->nextNodePtr = NULL;\
+\}\
+\
+char* GetName(ContactNode* node) \{\
+	return node->contactName;\
+\}\
+\
+char* GetPhoneNumber(ContactNode* node) \{\
+	return node->contactPhoneNumber;\
+\}\
+\
+void InsertAfter(ContactNode* node, ContactNode* newNode) \{\
+	newNode->nextNodePtr = node->nextNodePtr;\
+	node->nextNodePtr = newNode;\
+\}\
+\
+ContactNode* GetNext(ContactNode* node) \{\
+	return node->nextNodePtr;\
+\}\
+\
+void PrintContactNode(ContactNode* node) \{\
+	printf("Name: %s\\n", node->contactName);\
+	printf("Phone number: %s\\n", node->contactPhoneNumber);\
+\}\
+\
+int main(void) \{\
+	/* Type your code here. */\
+	ContactNode* head = (ContactNode*)malloc(sizeof(ContactNode));\
+	ContactNode* node1 = (ContactNode*)malloc(sizeof(ContactNode));\
+	ContactNode* node2 = (ContactNode*)malloc(sizeof(ContactNode));\
+	char name[100], phoneNum[100];\
+	\
+	fgets(name, 100, stdin);\
+	name[strlen(name) - 1] = '\\0';\
+	fgets(phoneNum, 100, stdin);\
+	phoneNum[strlen(phoneNum) - 1] = '\\0';\
+	InitializeContactNode(head, name, phoneNum);\
+	\
+	fgets(name, 100, stdin);\
+	name[strlen(name) - 1] = '\\0';\
+	fgets(phoneNum, 100, stdin);\
+	phoneNum[strlen(phoneNum) - 1] = '\\0';\
+	InitializeContactNode(node1, name, phoneNum);\
+	\
+	fgets(name, 100, stdin);\
+	name[strlen(name) - 1] = '\\0';\
+	fgets(phoneNum, 100, stdin);\
+	phoneNum[strlen(phoneNum) - 1] = '\\0';\
+	InitializeContactNode(node2, name, phoneNum);\
+	\
+	InsertAfter(head, node1);\
+	InsertAfter(node1, node2);\
+\
+	printf("Person 1: %s, %s\\n", head->contactName, head->contactPhoneNumber);\
+	printf("Person 2: %s, %s\\n", node1->contactName, node1->contactPhoneNumber);\
+	printf("Person 3: %s, %s\\n", node2->contactName, node2->contactPhoneNumber);\
+	\
+	ContactNode* p = head;\
+	printf("\\nCONTACT LIST\\n");\
+	while (p != NULL) \{\
+		PrintContactNode(p);\
+		p = GetNext(p);\
+		printf("\\n");\
+	\}\
+	\
+	return 0;\
+\}\
+}
